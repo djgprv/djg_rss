@@ -12,11 +12,9 @@ class DjgRssController extends PluginController {
     public function __construct() {
 		if (defined('CMS_BACKEND')) {
 			AuthUser::load();
-			
 			if ( !(AuthUser::isLoggedIn()) ) {
 				redirect(get_url('login'));
 			}		
-			
 			$this->setLayout('backend');
 			$this->assignToLayout('sidebar', new View('../../plugins/djg_rss/views/sidebar'));
 		}else{
@@ -31,7 +29,6 @@ class DjgRssController extends PluginController {
 	{
 		$this->display('djg_rss/views/settings', array('settings' => Plugin::getAllSettings('djg_rss')));
 	}
-	
     function save() {
 		$settings = $_POST['settings'];
         $ret = Plugin::setAllSettings($settings, 'djg_rss');

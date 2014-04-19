@@ -1,6 +1,5 @@
 <?php
 if (!defined('IN_CMS')) { exit(); }
-
 /**
  * @package Plugins
  * @subpackage djg_rss
@@ -9,12 +8,11 @@ if (!defined('IN_CMS')) { exit(); }
  * @copyright kreacjawww.pl, 2014
  * @license http://www.gnu.org/licenses/gpl.html GPLv3 license
  */
-
 Plugin::setInfos(array(
     'id'			=>	'djg_rss',
     'title'			=>	__('[djg] RSS Feed'),
     'description'	=>	__('RSS Feed generator'),
-    'version'		=>	'0.1',
+    'version'		=>	'0.1a',
 	'author'		=>	'Michał Uchanst',
     'website'		=>	'http://www.kreacjawww.pl/',
 	'type'			=>	'both'
