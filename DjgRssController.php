@@ -53,37 +53,20 @@ class DjgRssController extends PluginController {
 		self::rss($page->id);
 	}
 	private static function string_replace($string){
-		$find[] = '<';
-        $find[] = '\x92';
-        $find[] = '\x84';
-        $find[] = '\x92';
-        $find[] = '\x84';
-        $find[] = '&nbsp;';
-
-        $replace[] = '&#x3C;';
-        $replace[] = '&#39;';
-        $replace[] = '&#34;';
-        $replace[] = '&#39;';
-        $replace[] = '&#34;';
-        $replace[] = ' ';
-		
 		return strip_tags($string);
 	}
-	
-function xml_character_encode($string, $trans='') {
-
-}
-	public static function rss($pageId,$limit=10)
+	public static function rss($pageId,$limit=null)
 	{
+		$limit = ($limit==null) ? Plugin::getSetting('maxFeedsPerChanel','djg_rss') : $limit;
 		$rss_channel = new rssGeneratorChannel();
 		$rss_channel->atomLinkHref = '';
 		$rss_channel->title = Page::findById($pageId)->title();
 		$rss_channel->link = Page::findById($pageId)->url();
 		$rss_channel->description = 'description';
 		$rss_channel->language = 'pl';
-		$rss_channel->generator = 'djg_rss WolfCMS plugin';
-		$rss_channel->managingEditor = 'editor@mysite.com (Alex Jefferson)';
-		$rss_channel->webMaster = 'webmaster@mysite.com (Vagharshak Tozalakyan)';
+		$rss_channel->generator = Plugin::getSetting('generator','djg_rss');
+		$rss_channel->managingEditor = Plugin::getSetting('managingEditor','djg_rss');
+		$rss_channel->webMaster = Plugin::getSetting('webMaster','djg_rss');
 		
 		$feeds = Page::findById($pageId);
 		foreach ($feeds->children(array('limit' => $limit, 'order' => 'page.created_on DESC', 'status_id'=>100)) as $feed):
