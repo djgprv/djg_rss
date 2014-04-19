@@ -10,10 +10,10 @@ if (!defined('IN_CMS')) { exit(); }
  */ 
 $settings = array(
 	'ver' => '0.1',
-	'generator' = 'djg_rss plugin for Wolf CMS',
-	'managingEditor' = 'Wolf CMS',
-	'webMaster' = '',
+	'generator' => 'djg_rss plugin for Wolf CMS',
+	'managingEditor' => 'Wolf CMS',
+	'webMaster' => '',
 	'maxFeedsPerChanel' => '100'
 );
-if (plugin::setAllSettings($settings, 'djg_rss')) Flash::set('success', __('Successfully installed plugin.'));
-exit('sdf');
+Plugin::setAllSettings($settings, 'djg_rss');
+exit();

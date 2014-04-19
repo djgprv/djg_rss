@@ -27,33 +27,20 @@ class DjgRssController extends PluginController {
     public function index() {
         $this->documentation();
     }
-	public function settings($page=NULL) 
+	public function settings() 
 	{
-		if($page):
-			Flash::set('success', __('Your settings have been updated'));
-			redirect(get_url('plugin/djg_rss/settings'));
-		else:
-			$settings = Plugin::getAllSettings('djg_rss');
-			$this->display('djg_rss/views/settings', array('settings' => $settings));
-		endif;
+		$this->display('djg_rss/views/settings', array('settings' => Plugin::getAllSettings('djg_rss')));
 	}
 	
-    function save() 
-	{
-        if (isset($_POST['settings'])):
-            $settings = $_POST['settings'];
-            foreach ($settings as $key => $value) $settings[$key] = mysql_escape_string($value);
-            $ret = Plugin::setAllSettings($settings, 'djg_rss');
-            if ($ret):
-                Flash::set('success', __('The settings have been saved.'));
-            else:
-                Flash::set('error', __('An error occured trying to save the settings.'));
-            endif;
-        else:
-            Flash::set('error', __('Could not save settings, no settings found.'));
-        endif;
+    function save() {
+		$settings = $_POST['settings'];
+        $ret = Plugin::setAllSettings($settings, 'djg_rss');
+        if ($ret)
+            Flash::set('success', __('The settings have been updated.'));
+        else
+            Flash::set('error', 'An error has occurred while trying to save the settings.');
         redirect(get_url('plugin/djg_rss/settings'));
-    }
+	}
 	public function documentation() {
 		$content = Parsedown::instance()->parse(file_get_contents(PLUGINS_ROOT.DS.'djg_rss'.DS.'README.md'));
         $this->display('djg_rss/views/documentation', array('content'=>$content));

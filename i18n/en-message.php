@@ -14,14 +14,15 @@ return array(
 'The settings have been saved.' => 'The settings have been saved.', 
 'An error occured trying to save the settings.' => 'An error occured trying to save the settings.', 
 'Could not save settings, no settings found.' => 'Could not save settings, no settings found.', 
+/** enable.php */ 
+'Successfully installed plugin.' => 'Successfully installed plugin.', 
 /** index.php */ 
-'[djg] RSS' => '[djg] RSS', 
-'RSS generator' => 'RSS generator', 
+'[djg] RSS Feed' => '[djg] RSS Feed', 
+'RSS Feed generator' => 'RSS Feed generator', 
 /** views\documentation.php */ 
 'Documentation' => 'Documentation', 
 /** views\settings.php */ 
 'Settings' => 'Settings', 
-'Files' => 'Files', 
 'Generator' => 'Generator', 
 'Managing Editor' => 'Managing Editor', 
 'Web Master' => 'Web Master', 

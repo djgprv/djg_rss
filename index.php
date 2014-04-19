@@ -1,18 +1,9 @@
 <?php
-/*
- * Wolf CMS - Content Management Simplified. <http://www.wolfcms.org>
- * Copyright (C) 2008-2010 Martijn van der Kleijn <martijn.niji@gmail.com>
- *
- * This file is part of Wolf CMS. Wolf CMS is licensed under the GNU GPLv3 license.
- * Please see license.txt for the full license text.
- */
-
-/* Security measure */
 if (!defined('IN_CMS')) { exit(); }
 
 /**
  * @package Plugins
- * @subpackage djg_crss
+ * @subpackage djg_rss
  *
  * @author Michał Uchnast <djgprv@gmail.com>
  * @copyright kreacjawww.pl, 2014
@@ -20,13 +11,12 @@ if (!defined('IN_CMS')) { exit(); }
  */
 
 Plugin::setInfos(array(
-    'id'			=> 'djg_rss',
-    'title'			=> __('[djg] RSS Feed'),
-    'description'	=> __('RSS Feed generator'),
-    'version'		=> '0.1',
-   	'license'		=> 'GPL',
-	'author'		=> 'Michał Uchanst',
-    'website'		=> 'http://www.kreacjawww.pl/',
+    'id'			=>	'djg_rss',
+    'title'			=>	__('[djg] RSS Feed'),
+    'description'	=>	__('RSS Feed generator'),
+    'version'		=>	'0.1',
+	'author'		=>	'Michał Uchanst',
+    'website'		=>	'http://www.kreacjawww.pl/',
 	'type'			=>	'both'
 ));
 Plugin::addController('djg_rss', __('[djg] RSS Feed'), 'administrator', false);

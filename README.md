@@ -1,4 +1,4 @@
 djg_rss
 ========
 
-Djg_rss WolfCMS plugin. Simple Feed generator.
+Djg_rss Wolf CMS plugin. Simple Feed generator.
