@@ -50,16 +50,17 @@ class DjgRssController extends PluginController {
 		self::rss($page->id);
 	}
 	private static function string_replace($string){
-		return strip_tags($string);
+		$string = strip_tags($string);
+		return $string;
 	}
 	public static function rss($pageId,$limit=null)
 	{
 		$limit = ($limit==null) ? Plugin::getSetting('maxFeedsPerChanel','djg_rss') : $limit;
 		$rss_channel = new rssGeneratorChannel();
 		$rss_channel->atomLinkHref = '';
-		$rss_channel->title = Page::findById($pageId)->title();
+		$rss_channel->title = self::string_replace(Page::findById($pageId)->title());
 		$rss_channel->link = Page::findById($pageId)->url();
-		$rss_channel->description = 'description';
+		$rss_channel->description = self::string_replace(Page::findById($pageId)->content());
 		$rss_channel->language = 'pl';
 		$rss_channel->generator = Plugin::getSetting('generator','djg_rss');
 		$rss_channel->managingEditor = Plugin::getSetting('managingEditor','djg_rss');
