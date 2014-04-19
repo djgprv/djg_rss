@@ -21,17 +21,18 @@ if (!defined('IN_CMS')) { exit(); }
 
 Plugin::setInfos(array(
     'id'			=> 'djg_rss',
-    'title'			=> __('[djg] RSS'),
-    'description'	=> __('RSS generator'),
+    'title'			=> __('[djg] RSS Feed'),
+    'description'	=> __('RSS Feed generator'),
     'version'		=> '0.1',
    	'license'		=> 'GPL',
 	'author'		=> 'Michał Uchanst',
     'website'		=> 'http://www.kreacjawww.pl/',
 	'type'			=>	'both'
 ));
-Plugin::addController('djg_rss', __('[djg] RSS'), 'administrator', false);
+Plugin::addController('djg_rss', __('[djg] RSS Feed'), 'administrator', false);
 AutoLoader::addFolder(PLUGINS_ROOT.'/djg_rss/models/');
 Dispatcher::addRoute(array(
-	'/djg_rss/id/:any.xml' => '/plugin/djg_rss/by_id/$1'
+	'/djg_rss/id/:any.xml' => '/plugin/djg_rss/by_id/$1',
+	'/djg_rss/:any.xml' => '/plugin/djg_rss/by_slug/$1'
 ));
 ?>

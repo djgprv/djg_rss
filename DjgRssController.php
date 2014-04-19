@@ -61,6 +61,10 @@ class DjgRssController extends PluginController {
 	public static function by_id($pageId){
 		self::rss($pageId);
 	}
+	public static function by_slug($slug){
+		$page = Page::find($slug);
+		self::rss($page->id);
+	}
 	private static function string_replace($string){
 		$find[] = '<';
         $find[] = '\x92';
