@@ -10,12 +10,7 @@
 **/
 return array(
 /** DjgRssController.php */ 
-'Your settings have been updated' => 'Your settings have been updated', 
-'The settings have been saved.' => 'The settings have been saved.', 
-'An error occured trying to save the settings.' => 'An error occured trying to save the settings.', 
-'Could not save settings, no settings found.' => 'Could not save settings, no settings found.', 
-/** enable.php */ 
-'Successfully installed plugin.' => 'Successfully installed plugin.', 
+'The settings have been updated.' => 'The settings have been updated.', 
 /** index.php */ 
 '[djg] RSS Feed' => '[djg] RSS Feed', 
 'RSS Feed generator' => 'RSS Feed generator', 
@@ -23,11 +18,13 @@ return array(
 'Documentation' => 'Documentation', 
 /** views\settings.php */ 
 'Settings' => 'Settings', 
-'Generator' => 'Generator', 
+'Generator' => 'Generator',
+'Display channel content' => 'Display channel content',
 'Managing Editor' => 'Managing Editor', 
 'Web Master' => 'Web Master', 
-'Max <strong>feeds</strong> per chanel' => 'Max <strong>feeds</strong> per chanel', 
+'Max feeds per channel' => 'Max <strong>feeds</strong> per channel', 
+'Language' => 'Language', 
 'Save' => 'Save', 
-'You have modified this page.  If you navigate away from this page without first saving your data, the changes will be lost.' => 'You have modified this page.  If you navigate away from this page without first saving your data, the changes will be lost.', 
+'You have modified this page. If you navigate away from this page without first saving your data' => 'You have modified this page.  If you navigate away from this page without first saving your data', 
 /** views\sidebar.php */ 
 );

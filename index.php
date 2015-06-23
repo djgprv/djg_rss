@@ -12,7 +12,7 @@ Plugin::setInfos(array(
     'id'			=>	'djg_rss',
     'title'			=>	__('[djg] RSS Feed'),
     'description'	=>	__('RSS Feed generator'),
-    'version'		=>	'0.1a',
+    'version'		=>	'0.1b',
 	'author'		=>	'Michał Uchanst',
     'website'		=>	'http://www.kreacjawww.pl/',
 	'type'			=>	'both'

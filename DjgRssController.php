@@ -60,7 +60,7 @@ class DjgRssController extends PluginController {
 		$rss_channel->atomLinkHref = '';
 		$rss_channel->title = self::string_replace(Page::findById($pageId)->title());
 		$rss_channel->link = Page::findById($pageId)->url();
-		$rss_channel->description = self::string_replace(Page::findById($pageId)->content());
+		$rss_channel->description = (Plugin::getSetting('displayChannelContent','djg_rss') == '1') ? '<![CDATA[' . strip_tags(self::string_replace(Page::findById($pageId)->content())) . ']]>' : ' ';
 		$rss_channel->language = 'pl';
 		$rss_channel->generator = Plugin::getSetting('generator','djg_rss');
 		$rss_channel->managingEditor = Plugin::getSetting('managingEditor','djg_rss');
@@ -70,7 +70,7 @@ class DjgRssController extends PluginController {
 		foreach ($feeds->children(array('limit' => $limit, 'order' => 'page.created_on DESC', 'status_id'=>100)) as $feed):
 			$item = new rssGeneratorItem();
 			$item->title = self::string_replace($feed->title());
-			$item->description = self::string_replace($feed->content());
+			$item->description = '<![CDATA[' . strip_tags(self::string_replace($feed->content())) . ']]>';
 			$item->link = $feed->url();
 			$item->guid = $feed->url();
 			$item->pubDate = date(DATE_RSS, mktime( $feed->date('%H', 'created'),  $feed->date('%M', 'created'),  $feed->date('%S', 'created'), $feed->date('%m', 'created'), $feed->date('%d', 'created'), $feed->date('%Y', 'created')));
